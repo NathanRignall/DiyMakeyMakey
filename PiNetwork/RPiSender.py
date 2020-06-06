@@ -1,8 +1,8 @@
-import send
+import Network as net
 
 try:
-    send.initializeSocket(port=9000, client="192.168.54.3")
-    send.sendData("Test!")
-    send.endSocket()
+    net.sendInitializeSocket(port=9000, client="192.168.54.3")
+    net.sendData("Test!")
+    net.sendEndSocket()
 except:
-    send.endSocket()
+    net.sendEndSocket()
