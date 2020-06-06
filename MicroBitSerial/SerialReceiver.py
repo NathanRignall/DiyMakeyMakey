@@ -11,7 +11,6 @@ while True:
     data = data.replace("[", "")
     data = data.replace("]", "")
     data = data.split(', ')
-    time.sleep(0.1)
     if len(data) == 3:
         if data[0] == "1":
             keyboard.press('a')
@@ -26,5 +25,6 @@ while True:
         else:
             keyboard.release('c')
         print(data)
+    time.sleep(0.1)
 
 ser.close()

@@ -1,17 +1,12 @@
-import serial,time,keyboard
+import socket,time,keyboard
+import Network as net
 
-ser = serial.Serial(port='COM3', baudrate=115200, timeout=0)
-
-print("connected to: " + ser.portstr)
-count=1
+net.rcvInitializeSocket(port=9000)
 
 while True:
-    data = ser.readline()
+    data = net.rcvData()
     data = data.decode('utf-8')
-    data = data.replace("[", "")
-    data = data.replace("]", "")
-    data = data.split(', ')
-    time.sleep(0.1)
+    data = data.split(',')
     if len(data) == 3:
         if data[0] == "1":
             keyboard.press('a')
@@ -27,4 +22,4 @@ while True:
             keyboard.release('c')
         print(data)
 
-ser.close()
+net.rcvEndSocket()
