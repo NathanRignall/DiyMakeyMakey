@@ -5,9 +5,19 @@ keys = [0,0,0]
 
 def key0(channel):
     if GPIO.input(channel) == GPIO.HIGH:
-        key[0] = 1
+        keys[0] = 1
     else:
-        key[0] = 0
+        keys[0] = 0
+def key1(channel):
+    if GPIO.input(channel) == GPIO.HIGH:
+        keys[1] = 1
+    else:
+        keys[1] = 0
+def key2(channel):
+    if GPIO.input(channel) == GPIO.HIGH:
+        keys[2] = 1
+    else:
+        keys[2] = 0
 try:
     net.sendInitializeSocket(port=9000, client="192.168.54.3")
     net.sendData("Starup")

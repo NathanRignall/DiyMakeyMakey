@@ -6,7 +6,9 @@ net.rcvInitializeSocket(port=9000)
 while True:
     data = net.rcvData()
     data = data.decode('utf-8')
-    data = data.split(',')
+    data = data.replace("[", "")
+    data = data.replace("]", "")
+    data = data.split(', ')
     if len(data) == 3:
         if data[0] == "1":
             keyboard.press('a')
